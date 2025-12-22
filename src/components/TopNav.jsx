@@ -1,7 +1,7 @@
 const tabs = [
   { id: "map", label: "Map" },
   { id: "character", label: "Character" },
-  { id: "quests", label: "Quests" },
+  { id: "missions", label: "Missions" },
   { id: "abilities", label: "Abilities" },
   { id: "settings", label: "Settings" },
 ];

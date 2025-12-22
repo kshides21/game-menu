@@ -1,6 +1,6 @@
 import MapScreen from "../screens/MapScreen";
 import CharacterScreen from "../screens/CharacterScreen";
-import QuestScreen from "../screens/QuestScreen";
+import MissionScreen from "../screens/MissionScreen";
 import AbilitiesScreen from "../screens/AbilitiesScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
@@ -10,8 +10,8 @@ export default function ScreenWrapper({ activeScreen }) {
       return <MapScreen />;
     case "character":
       return <CharacterScreen />;
-    case "quests":
-      return <QuestScreen />;
+    case "missions":
+      return <MissionScreen />;
     case "abilities":
       return <AbilitiesScreen />;
     case "settings":

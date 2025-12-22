@@ -1,0 +1,43 @@
+.character-screen {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.screen-title {
+  grid-column: 1 / -1;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.stats-panel {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.inventory-panel {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+}
+
+.inventory-panel button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.inventory-panel button.equipped {
+  background: rgba(100, 180, 255, 0.15);
+}

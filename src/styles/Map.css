@@ -1,0 +1,19 @@
+.map-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.map-placeholder {
+  height: 300px;
+  background: #111;
+  border: 2px dashed #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-btn.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
