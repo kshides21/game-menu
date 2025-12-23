@@ -9,8 +9,8 @@ export default function SettingsScreen({
   setTheme,
   font,
   setFont,
-  characterGender,
-  setCharacterGender,
+  characterType,
+  setcharacterType,
 }) {
   return (
     <div className="settings-screen">
@@ -28,10 +28,14 @@ export default function SettingsScreen({
       <div className="settings-group">
         <h2>Appearance</h2>
 
-        <Toggle
-          label="Day / Night Mode"
-          value={theme === "night"}
-          onToggle={() => setTheme(theme === "night" ? "day" : "night")}
+        <OptionGroup
+          label="Theme"
+          options={[
+            { label: "Dawn", value: "day" },
+            { label: "Dusk", value: "night" },
+          ]}
+          selected={theme}
+          onSelect={setTheme}
         />
 
         <OptionGroup
@@ -51,11 +55,11 @@ export default function SettingsScreen({
         <OptionGroup
           label="Character Model"
           options={[
-            { label: "Droid", value: "droid" },
-            { label: "Cyborg", value: "cyborg" },
+            { label: "Cyborg Soldier", value: "soldier" },
+            { label: "Street Samurai", value: "samurai" },
           ]}
-          selected={characterGender}
-          onSelect={setCharacterGender}
+          selected={characterType}
+          onSelect={setcharacterType}
         />
       </div>
 

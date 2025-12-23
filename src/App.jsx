@@ -6,22 +6,20 @@ import music from "./music/Cyber_Streets.mp3";
 export default function App() {
   const [activeScreen, setActiveScreen] = useState("map");
   const [musicOn, setMusicOn] = useState(false);
-  const [theme, setTheme] = useState("night");
+  const [theme, setTheme] = useState("day");
   const [font, setFont] = useState("rajdhani");
-  const [characterGender, setCharacterGender] = useState("Female");
+  const [characterType, setcharacterType] = useState("soldier");
   const audioRef = useRef(new Audio(music));
 
- useEffect(() => { 
-  if (musicOn) {
-    audioRef.current.loop = true;
-    audioRef.current.play();
-  } else {
-    audioRef.current.pause();
-  }
+  useEffect(() => {
+    if (musicOn) {
+      audioRef.current.loop = true;
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [musicOn]);
 
-}, [musicOn]);
-
-  
   return (
     <div className={`app-root ${theme} font-${font.toLowerCase()}`}>
       <PauseMenu
@@ -33,8 +31,8 @@ export default function App() {
         setTheme={setTheme}
         font={font}
         setFont={setFont}
-        characterGender={characterGender}
-        setCharacterGender={setCharacterGender}
+        characterType={characterType}
+        setcharacterType={setcharacterType}
       />
     </div>
   );

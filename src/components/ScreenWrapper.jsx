@@ -4,13 +4,22 @@ import MissionScreen from "../screens/MissionScreen";
 import AbilitiesScreen from "../screens/AbilitiesScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
-export default function ScreenWrapper({ activeScreen, musicOn, setMusicOn, theme, setTheme, font, setFont, characterGender, setCharacterGender }) {
-
+export default function ScreenWrapper({
+  activeScreen,
+  musicOn,
+  setMusicOn,
+  theme,
+  setTheme,
+  font,
+  setFont,
+  characterType,
+  setcharacterType,
+}) {
   switch (activeScreen) {
     case "map":
       return <MapScreen />;
     case "character":
-      return <CharacterScreen />;
+      return <CharacterScreen characterType={characterType} />;
     case "missions":
       return <MissionScreen />;
     case "abilities":
@@ -24,8 +33,8 @@ export default function ScreenWrapper({ activeScreen, musicOn, setMusicOn, theme
           setTheme={setTheme}
           font={font}
           setFont={setFont}
-          characterGender={characterGender}
-          setCharacterGender={setCharacterGender}
+          characterType={characterType}
+          setcharacterType={setcharacterType}
         />
       );
     default:

@@ -41,3 +41,14 @@
 .inventory-panel button.equipped {
   background: rgba(100, 180, 255, 0.15);
 }
+
+.character-model {
+  width: 300px;
+  animation: rotate 30s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
