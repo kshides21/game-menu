@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { BASE_STATS, STARTING_GEAR } from "../data/characterData";
 import soldier from "../assets/soldier.png";
 import samurai from "../assets/samurai.webp";
@@ -7,7 +7,13 @@ import "../styles/Character.css";
 
 export default function CharacterScreen({ characterType }) {
   const [equipped, setEquipped] = useState(STARTING_GEAR);
-  const [activeCategory, setActiveCategory] = useState("weapons");
+  const [activeCategory, setActiveCategory] = useState("weapon");
+  const [statChanges, setStatChanges] = useState({});
+  const CATEGORIES = [
+    { key: "weapon", label: "Weapons" },
+    { key: "armor", label: "Armor" },
+    { key: "augment", label: "Augments" },
+  ];
 
   const finalStats = useMemo(() => {
     const stats = { ...BASE_STATS };
@@ -22,6 +28,26 @@ export default function CharacterScreen({ characterType }) {
     return stats;
   }, [equipped]);
 
+  const prevStatsRef = useRef(finalStats);
+
+  const visibleItems = useMemo(() => {
+    return ITEMS.filter((item) => item.slot === activeCategory);
+  }, [activeCategory]);
+
+  useEffect(() => {
+    const changes = {};
+
+    Object.entries(finalStats).forEach(([stat, value]) => {
+      const prev = prevStatsRef.current[stat];
+      if (prev !== value) {
+        changes[stat] = value > prev ? "up" : "down";
+      }
+    });
+
+    setStatChanges(changes);
+    prevStatsRef.current = finalStats;
+  }, [finalStats]);
+
   const equipItem = (item) => {
     setEquipped((prev) => ({
       ...prev,
@@ -29,16 +55,11 @@ export default function CharacterScreen({ characterType }) {
     }));
   };
 
-  // const visibleItems = inventory.filter(
-  //   (item) => item.category === activeCategory
-  // );
-
   return (
     <div className="character-screen">
       <h1 className="screen-title">Character</h1>
       <div className="character-info">
         <div className="character-model">
-          {/* Placeholder for 3D character model */}
           <img
             src={characterType === "soldier" ? soldier : samurai}
             alt="Character Model"
@@ -48,35 +69,55 @@ export default function CharacterScreen({ characterType }) {
           {Object.entries(finalStats).map(([stat, value]) => (
             <div key={stat} className="stat-row">
               <span>{stat.toUpperCase()}</span>
-              <span>{value}</span>
+              <span
+                className={`stat-value ${
+                  statChanges[stat] ? `stat-${statChanges[stat]}` : ""
+                }`}
+              >
+                {value}
+              </span>
             </div>
           ))}
         </section>
       </div>
 
       <section className="inventory-panel">
-        <h2>Equipment</h2>
+        <h2 className="equipment-title">Equipment</h2>
         <div className="equipment-tabs">
-          {["weapons", "armor", "augments"].map((cat) => (
+          {CATEGORIES.map((cat) => (
             <button
-              key={cat}
-              className={activeCategory === cat ? "active" : ""}
-              onClick={() => setActiveCategory(cat)}
+              key={cat.key}
+              className={`tab-btn ${
+                activeCategory === cat.key ? "active" : ""
+              }`}
+              onClick={() => setActiveCategory(cat.key)}
             >
-              {cat.toUpperCase()}
+              {cat.label}
             </button>
           ))}
         </div>
 
-        {ITEMS.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => equipItem(item)}
-            className={equipped[item.slot]?.id === item.id ? "equipped" : ""}
-          >
-            {item.name}
-          </button>
-        ))}
+        <div className="equipment-grid">
+          {visibleItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => equipItem(item)}
+              className={`equipment-card ${
+                equipped[item.slot]?.id === item.id ? "equipped" : ""
+              }`}
+            >
+              <h4 className="item-title">{item.name}</h4>
+              <div className="item-stats">
+                {Object.entries(item.stats).map(([stat, value]) => (
+                  <span key={stat}>
+                    {stat.toUpperCase()} {value > 0 ? `+${value}` : value}
+                    <br />
+                  </span>
+                ))}
+              </div>
+            </button>
+          ))}
+        </div>
       </section>
     </div>
   );
