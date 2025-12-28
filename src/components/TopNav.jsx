@@ -1,3 +1,6 @@
+import "../styles/NavBar.css";
+export default function TopNav({ activeScreen, setActiveScreen }) {
+
 const tabs = [
   { id: "map", label: "Map" },
   { id: "character", label: "Character" },
@@ -6,14 +9,13 @@ const tabs = [
   { id: "settings", label: "Settings" },
 ];
 
-export default function TopNav({ activeScreen, setActiveScreen }) {
   return (
     <nav className="top-nav">
       {tabs.map((tab) => (
         <button
           key={tab.id}
-          className={activeScreen === tab.id ? "active" : ""}
           onClick={() => setActiveScreen(tab.id)}
+          className={activeScreen === tab.id ? "nav-active" : ""}
         >
           {tab.label}
         </button>

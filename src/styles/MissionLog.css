@@ -1,29 +1,85 @@
 .mission-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.25rem;
+  height: calc(100vh - 120px);
+}
+
+.mission-lists {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
+  overflow-y: auto;
 }
 
 .mission-list {
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.12);
   padding: 0.75rem;
 }
 
 .mission-item {
   width: 100%;
   margin-bottom: 0.4rem;
-  padding: 0.4rem;
+  padding: 0.5rem;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
+  color: inherit;
   cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.mission-item:hover {
+  border-color: rgba(100,180,255,0.6);
+}
+
+.mission-item.selected {
+  background: rgba(100,180,255,0.15);
+  border-color: #64b4ff;
+  box-shadow: 0 0 10px rgba(100,180,255,0.3);
 }
 
 .mission-details {
   border: 1px solid rgba(255,255,255,0.15);
   padding: 1rem;
+  height: 100%;
+  max-width: 600px;
+}
+
+.mission-log {
+  padding: 1.5rem;
+}
+
+.mission-title {
+  margin: 8px;
 }
 
 .mission-item:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mission-detail-panel {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 716px) {
+  .mission-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+
+  .mission-lists {
+    height: auto;
+    max-height: 300px;
+  }
+
+  .mission-details {
+    max-width: none;
+    height: auto;
+    margin-top: 1rem;
+  }
 }

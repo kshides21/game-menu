@@ -1,4 +1,5 @@
 import TopNav from "./TopNav";
+import MobileMenu from "./MobileMenu";
 import ScreenWrapper from "./ScreenWrapper";
 
 export default function PauseMenu({
@@ -16,6 +17,7 @@ export default function PauseMenu({
   return (
     <div className="pause-menu">
       <TopNav activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
+      <MobileMenu activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
 
       <ScreenWrapper
         activeScreen={activeScreen}

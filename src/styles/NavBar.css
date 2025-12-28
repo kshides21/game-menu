@@ -1,0 +1,122 @@
+.top-nav {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(120, 200, 255, 0.4),
+    inset 0 0 20px rgba(120, 200, 255, 0.15);
+}
+
+.top-nav button,
+.top-nav-mobile button {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  color: var(--text-color);
+  transition: background 0.3s ease;
+}
+
+.top-nav button:hover {
+  background: rgba(100, 180, 255, 0.15);
+}
+
+.nav-active {
+  background: rgba(100, 180, 255, 0.25) !important;
+}
+
+.top-nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.95);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn {
+  position: absolute;
+  transform: translate(35%, -600%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.menu-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.menu-link:hover {
+  color: #64b4ff;
+  transform: translateY(-2px);
+}
+
+.menu-link.active {
+  color: #64b4ff;
+  text-shadow: 0 0 10px rgba(100,180,255,0.6);
+}
+
+.mobile-menu-overlay {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  padding: 1rem;
+  color: black !important;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 716px) {
+  .top-nav {
+    display: none;
+  }
+  .top-nav-mobile {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(120, 200, 255, 0.4),
+      inset 0 0 20px rgba(120, 200, 255, 0.15);
+    color: white;
+  }
+}

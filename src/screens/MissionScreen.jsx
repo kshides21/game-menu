@@ -3,15 +3,17 @@ import { MISSIONS } from "../data/missions";
 import { LOCATIONS } from "../data/locations";
 import "../styles/MissionLog.css";
 
-function MissionList({ title, missions, onSelect, disabled }) {
+function MissionList({ title, missions, onSelect, selectedMission, disabled }) {
   return (
     <section className="mission-list">
-      <h2>{title}</h2>
+      <h2 className="mission-title">{title}</h2>
 
       {missions.map((mission) => (
         <button
           key={mission.id}
-          className="mission-item"
+          className={`mission-item ${
+            selectedMission?.id === mission.id ? "selected" : ""
+          }`}
           disabled={disabled}
           onClick={() => !disabled && onSelect(mission)}
         >
@@ -39,7 +41,7 @@ function MissionDetails({ mission }) {
   if (mission.status === "locked") {
     return (
       <div className="mission-details">
-        <p>This mission is currently locked.</p>
+        <p>This mission is currently locked. Progress in game to unlock mission</p>
       </div>
     );
   }
@@ -63,6 +65,7 @@ function MissionDetails({ mission }) {
       {mission.rewards.items && (
         <p>Items: {mission.rewards.items.join(", ")}</p>
       )}
+      <p>Status: {mission.status.toUpperCase()}</p>
     </div>
   );
 }
@@ -79,24 +82,30 @@ export default function MissionScreen() {
       <h1 className="screen-title">Mission Log</h1>
 
       <div className="mission-layout">
+        <div className="mission-lists" >
         <MissionList
           title="Active Missions"
           missions={active}
           onSelect={setSelectedMission}
+          selectedMission={selectedMission}
         />
         <MissionList
           title="Completed"
           missions={completed}
           onSelect={setSelectedMission}
+          selectedMission={selectedMission}
         />
         <MissionList
           title="Locked"
           missions={locked}
           onSelect={setSelectedMission}
-          disabled
+          selectedMission={selectedMission}
+    
         />
-
-        <MissionDetails mission={selectedMission} />
+        </div>
+        <div className="mission-detail-panel">
+         <MissionDetails mission={selectedMission} />
+        </div>
       </div>
     </div>
   );

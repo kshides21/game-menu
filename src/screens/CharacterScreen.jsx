@@ -43,7 +43,7 @@ export default function CharacterScreen({ characterType }) {
         changes[stat] = value > prev ? "up" : "down";
       }
     });
-
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatChanges(changes);
     prevStatsRef.current = finalStats;
   }, [finalStats]);
