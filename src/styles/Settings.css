@@ -9,7 +9,8 @@
 
 .settings-screen {
     padding: 24px;
-    height: 100vh;
+    height: 100%;
+
 }
 
 .settings-title {
