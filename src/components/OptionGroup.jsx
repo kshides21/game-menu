@@ -9,7 +9,7 @@ function OptionGroup({ label, options, selected, onSelect }) {
             key={opt.value}
             className={`option-btn ${
               selected === opt.value ? "selected" : ""
-            }`}
+            } ${opt.value}-perm`}
             onClick={() => onSelect(opt.value)}
           >
             {opt.label}

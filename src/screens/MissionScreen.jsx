@@ -31,7 +31,7 @@ function MissionDetails({ mission }) {
   if (!mission) {
     return (
       <div className="mission-details">
-        <p>Select a mission to view details</p>
+        <p className="mission-paragraph">Select a mission to view details</p>
       </div>
     );
   }
@@ -41,7 +41,7 @@ function MissionDetails({ mission }) {
   if (mission.status === "locked") {
     return (
       <div className="mission-details">
-        <p>This mission is currently locked. Progress in game to unlock mission</p>
+        <p className="mission-paragraph">This mission is currently locked. Progress in game to unlock mission</p>
       </div>
     );
   }

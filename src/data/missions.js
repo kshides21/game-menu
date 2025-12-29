@@ -113,22 +113,30 @@ export const MISSIONS = [
   },
   {
     id: "q009",
-    title: "Secuirty Breach",
-    status: "locked",
+    title: "Security Breach",
+    status: "completed",
     locationId: "neo_core",
     description:
-      "A security breach has been detected in the mainframe. Progress further to unlock this mission.",
-    objectives: [],
-    rewards: null,
+      "A security breach has been detected in the mainframe. Investigate to secure the system.",
+    objectives: ["Track down stolen chip", "Neutralize threats", "Restore system integrity"],
+    rewards: {
+      xp: 250,
+      credits: 100,
+      items: ["Bionic Memory Chip"],
+    },
   },
   {
     id: "q010",
     title: "Smuggler's Run",
-    status: "locked",
+    status: "active",
     locationId: "the_underbelly",
     description:
-      "A notorious smuggler is operating underground. Progress further to unlock this mission.",
-    objectives: [],
-    rewards: null,
+      "A notorious smuggler is operating underground. Infiltrate their network and bring them to justice.",
+    objectives: ["Talk with Small Gus", "Locate smuggler's den", "Apprehend the smuggler"],
+    rewards: {
+      xp: 420,
+      credits: 200,
+      items: ["Holo-Tracker"],
+    },
   }
 ];

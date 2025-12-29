@@ -14,8 +14,8 @@ export default function SettingsScreen({
 }) {
   return (
     <div className="settings-screen">
-      <h1 className="screen-title">Settings</h1>
-
+      <h1 className="screen-title settings-title">Settings</h1>
+    <div className="settings-groups">
       <div className="settings-group">
         <h2>Audio</h2>
         <Toggle
@@ -65,14 +65,16 @@ export default function SettingsScreen({
 
       <div className="settings-group">
         <h2>System</h2>
-
-        <button className="disabled-btn" disabled>
+          <div className="system-settings">
+        <button className="disabled-btn">
           Save Game
         </button>
 
-        <button className="disabled-btn" disabled>
+        <button className="disabled-btn">
           Main Menu
         </button>
+        </div>
+      </div>
       </div>
     </div>
   );
