@@ -44,6 +44,7 @@ export default function AbilitiesScreen() {
   return (
     <div className="skills-web">
       <h1 className="screen-title">Abilities Tree</h1>
+      <span>Use XP to unlock various abilities.</span>
       <div className="xp-display">Available XP: {xp}</div>
 
       {warning && <div className="warning-message">{warning}</div>}
