@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1.25rem;
-  height: calc(100vh - 120px);
+  height: 100%;
 }
 
 .mission-lists {
