@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { MAP_LOCATIONS } from "../data/mapData";
 import { MISSIONS } from "../data/missions";
+import { useIsMobile } from "../components/isMobile";
+import mapDesktop from "../assets/world-map-desktop.png";
+import mapMobile from "../assets/world-map-phone.png";
 import "../styles/Map.css";
 
 export default function MapScreen() {
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const isMobile = useIsMobile(716);
 
   const missionsAtLocation = selectedLocation
-  ? MISSIONS.filter(
-      (mission) => mission.locationId === selectedLocation.id
-    )
-  : [];
-
+    ? MISSIONS.filter((mission) => mission.locationId === selectedLocation.id)
+    : [];
 
   return (
     <div className="map-screen">
@@ -19,16 +20,42 @@ export default function MapScreen() {
 
       <div className="map-layout">
         <div className="map-visual">
-          {/* Map image will go here later */}
-          <div className="map-placeholder">[ MAP IMAGE ]</div>
+          <img
+            src={isMobile ? mapMobile : mapDesktop}
+            alt="World Map"
+            className="map-image"
+          />
+
+          {MAP_LOCATIONS.map((location) => {
+            const coords = isMobile
+              ? location.coords.mobile
+              : location.coords.desktop;
+
+            return (
+              <button
+                key={location.id}
+                className={`map-marker ${location.status}`}
+                style={{
+                  top: coords.y,
+                  left: coords.x,
+                }}
+                onClick={() => setSelectedLocation(location)}
+              >
+                {location.emoji}
+              </button>
+            );
+          })}
         </div>
 
         <div className="map-locations">
           {MAP_LOCATIONS.map((location) => (
             <button
               key={location.id}
-              className={`location-btn ${location.status}`}
-              disabled={location.status === "locked"}
+              className={`location-btn ${location.status} ${
+                selectedLocation && selectedLocation.id === location.id
+                  ? "active"
+                  : ""
+              }`}
               onClick={() => setSelectedLocation(location)}
             >
               {location.name}
@@ -38,7 +65,9 @@ export default function MapScreen() {
 
         {selectedLocation && (
           <div className="location-info">
-            <h2>{selectedLocation.name}</h2>
+            <h2>
+              {selectedLocation.name} {selectedLocation.emoji}
+            </h2>
             <p>{selectedLocation.description}</p>
             <h3>Missions Available:</h3>
             <ul>
@@ -60,4 +89,3 @@ export default function MapScreen() {
     </div>
   );
 }
-
