@@ -80,7 +80,7 @@
   transition: all 0.2s ease;
 }
 
-.map-marker:hover, .map-marker:focus {
+.map-marker:hover, .map-marker:focus, .map-marker.active {
   transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 0 12px rgba(100,180,255);
   border: 1px solid white;

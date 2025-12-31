@@ -34,7 +34,9 @@ export default function MapScreen() {
             return (
               <button
                 key={location.id}
-                className={`map-marker ${location.status}`}
+                className={`map-marker ${location.status} ${selectedLocation && selectedLocation.id === location.id
+                  ? "active"
+                  : ""}`}
                 style={{
                   top: coords.y,
                   left: coords.x,
