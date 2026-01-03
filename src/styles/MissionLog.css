@@ -93,4 +93,7 @@
     height: auto;
     margin-top: 1rem;
   }
+  .mission-log {
+    height: 140vh;
+  }
 }

@@ -32,7 +32,7 @@ export const MAP_LOCATIONS = [
     fastTravel: false,
     coords: {
       desktop: { x: "81.5%", y: "33%"},
-      mobile: { x: "76.5%", y: "31.5%"}
+      mobile: { x: "77%", y: "31.5%"}
     }
   },
   {

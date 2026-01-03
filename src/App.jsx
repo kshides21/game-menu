@@ -7,7 +7,7 @@ export default function App() {
   const [activeScreen, setActiveScreen] = useState("map");
   const [musicOn, setMusicOn] = useState(false);
   const [theme, setTheme] = useState("day");
-  const [font, setFont] = useState("rajdhani");
+  const [font, setFont] = useState("michroma");
   const [characterType, setcharacterType] = useState("soldier");
   const audioRef = useRef(new Audio(music));
 

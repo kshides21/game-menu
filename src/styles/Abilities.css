@@ -121,6 +121,9 @@
 }
 
 @media (max-width: 1180px) {
+  .skill-desc {
+        display: none;
+    }
     .tier-1 {
         width: 500px;
     }
@@ -168,9 +171,6 @@
       margin-top: 2px;
       font-size: 12px;
     }
-    .skill-desc {
-        display: none;
-    }
     .ability-tab {
         font-size: 12px;
         padding: 0.4rem;
@@ -200,4 +200,8 @@
     .line-right {
       left: 35%;
     }
-}
+    .skill-node.tier-3, .skill-name-desc{
+      font-size: 10px;
+    }
+  }
+
