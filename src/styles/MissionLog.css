@@ -74,6 +74,9 @@
 }
 
 @media (max-width: 716px) {
+  .misison-log {
+    height: 170vh;
+  }
   .mission-layout {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;

@@ -20,7 +20,7 @@ export const MAP_LOCATIONS = [
     fastTravel: true,
     coords: {
       desktop: { x: "83.5%", y: "70%"},
-      mobile: { x: "79%", y: "73.5%"}
+      mobile: { x: "79%", y: "74%"}
     }
   },
   { 
@@ -32,7 +32,7 @@ export const MAP_LOCATIONS = [
     fastTravel: false,
     coords: {
       desktop: { x: "81.5%", y: "33%"},
-      mobile: { x: "76.5%", y: "31%"}
+      mobile: { x: "76.5%", y: "31.5%"}
     }
   },
   {
@@ -44,7 +44,7 @@ export const MAP_LOCATIONS = [
     fastTravel: true,
     coords: {
       desktop: { x: "50.5%", y: "91%"},
-      mobile: { x: "50.5%", y: "93%"}
+      mobile: { x: "51%", y: "93%"}
     }
   },
   {    
@@ -68,7 +68,7 @@ export const MAP_LOCATIONS = [
     fastTravel: true,
     coords: {
       desktop: { x: "51%", y: "71%"},
-      mobile: { x: "52%", y: "62%"}
+      mobile: { x: "52%", y: "62.5%"}
     }
   },
   {

@@ -9,7 +9,7 @@
 
 .settings-screen {
     padding: 24px;
-    height: 100%;
+    height: 100vh;
 
 }
 
@@ -63,5 +63,8 @@
 @media (max-width: 716px) {
     .settings-groups {
         grid-template-columns: 1fr;
+    }
+    .settings-screen {
+        height: 100%;
     }
 }

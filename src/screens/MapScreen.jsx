@@ -85,6 +85,9 @@ export default function MapScreen() {
             {selectedLocation.fastTravel && (
               <button className="travel-btn">Fast Travel</button>
             )}
+            {!selectedLocation.fastTravel && (
+              <button className="travel-btn locked-travel">Fast Travel</button>
+            )}
           </div>
         )}
       </div>

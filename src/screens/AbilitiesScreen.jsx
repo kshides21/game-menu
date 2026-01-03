@@ -31,7 +31,7 @@ export default function AbilitiesScreen() {
 
   if (xp < skill.cost) {
     setWarning("Gain more XP to unlock ability.");
-    setTimeout(() => setWarning(""), 2000);
+    setTimeout(() => setWarning(""), 4000);
     return;
   }
 
@@ -72,7 +72,8 @@ export default function AbilitiesScreen() {
                 <div key={skill.id} className="skill-wrapper">
                   {tierIndex > 0 && (
                     <div
-                      className={`skill-line ${unlocked ? "line-active" : ""}`}
+                      className={`skill-line ${unlocked ? "line-active" : ""} ${skill.level==="a" ? "line-left" : "line-right"}
+                      }`}
                     />
                   )}
 

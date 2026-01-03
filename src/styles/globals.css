@@ -20,6 +20,7 @@ html body {
   background-color: #946473;
   color: #f4f3f3;
   --accent-color: #00ffcc;
+  --main-color: black;
   overflow: visible;
 }
 
@@ -27,6 +28,7 @@ html body {
   background-color: #ffe9d8;
   color: #0d0c0c;
   --accent-color: #0077aa;
+  --main-color: #fff;
   overflow: visible;
 }
 

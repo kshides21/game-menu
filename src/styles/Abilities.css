@@ -1,6 +1,6 @@
 .skills-web {
     padding: 24px;
-    height: 100vh;
+    height: 100%;
 }
 
 .ability-tabs {
@@ -92,11 +92,18 @@
 .skill-line {
   position: absolute;
   top: -2rem;
-  left: 50%;
   width: 2px;
   height: 2rem;
   background: rgba(255,255,255,0.2);
   transform: translateX(-50%);
+}
+
+.line-left {
+  left: 75%;
+}
+
+.line-right {
+  left: 25%;
 }
 
 .skill-line.line-active {
@@ -119,9 +126,6 @@
     }
     .tier-2 {
         width: 350px;
-    }
-    .skill-tier {
-        justify-content: center;
     }
     .skill-node {
         height: 160px;
@@ -156,6 +160,9 @@
 }
 
 @media (max-width: 716px) {
+    .skills-web {
+    height: 100vh;
+    }
     .skill-name-desc {
       margin-bottom: 0px;
       margin-top: 2px;
@@ -186,5 +193,11 @@
     }
     .skill-node {
         padding: 0;
+    }
+    .line-left {
+      left: 65%;
+    }
+    .line-right {
+      left: 35%;
     }
 }

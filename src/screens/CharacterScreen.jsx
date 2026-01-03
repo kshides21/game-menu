@@ -65,6 +65,7 @@ export default function CharacterScreen({ characterType }) {
             alt="Character Model"
           />
         </div>
+        <h2 className="character-title-name">{characterType === "soldier" ? "Cyborg Soldier" : "Street Samurai"}</h2>
         <section className="stats-panel">
           {Object.entries(finalStats).map(([stat, value]) => (
             <div key={stat} className="stat-row">
